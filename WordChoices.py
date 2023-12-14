@@ -6,7 +6,7 @@ from PIL import Image
 
 user_api_key = st.sidebar.text_input("OpenAI API key", type="password")
 
-image = Image.open("C:\Users\KONGKOY\Pictures\synonym-antonym.jpg")
+image = Image.open("C:\Users\KONGKOY\Documents\synonym-antonym.jpg")
 
 client = openai.OpenAI(api_key=user_api_key)
 prompt = """
