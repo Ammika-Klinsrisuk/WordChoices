@@ -2,8 +2,11 @@ import streamlit as st
 import openai
 import json
 import pandas as pd
+from PIL import Image
 
 user_api_key = st.sidebar.text_input("OpenAI API key", type="password")
+
+image = Image.open("synonym-antonym.jpg")
 
 client = openai.OpenAI(api_key=user_api_key)
 prompt = """
@@ -19,6 +22,7 @@ prompt = """
 
 st.title('Word choices')
 st.markdown("Give us some passage. We will find some interesting vocabularies and give you their synonyms and antonyms!")
+st.image(image)
 
 user_input = st.text_area("Enter some text here :")
 
@@ -42,4 +46,3 @@ if st.button('Submit'):
     response_dataframe = pd.DataFrame.from_dict(vocabs)
     print(response_dataframe)
     st.table(response_dataframe)
-            
